@@ -29,22 +29,22 @@
     // カメラを作成
     var camera = new THREE.PerspectiveCamera(45, width / height, 1, 1000);
 
-//目（円柱）    
+//円柱（目）    
 var cylinderGeometry = new THREE.CylinderGeometry( 0.2, 0.2,0.5,0);
     
-var cylinderMaterial = new THREE.MeshPhongMaterial( {color: 0x42426F});
+var cylinderMaterial = new THREE.MeshPhongMaterial( {color: 0x42426F});  //黒っぽい青
 var cylinder1 = new THREE.Mesh( cylinderGeometry,cylinderMaterial);
 var cylinder2 = new THREE.Mesh( cylinderGeometry,cylinderMaterial);
 cylinder1.position.set( 0.6, 0.5, -5);
 cylinder2.position.set( -0.6, 0.5, -5);    
       
 //球
-var sphereGeometry1 = new THREE.SphereGeometry( 0.6, 32, 32 ); 
-var sphereGeometry2 = new THREE.SphereGeometry( 3.0, 32, 32 );
+var sphereGeometry1 = new THREE.SphereGeometry( 0.6, 32, 32 ); 　　　　　//鼻＆頬
+var sphereGeometry2 = new THREE.SphereGeometry( 3.0, 32, 32 );　　　　　 //顔
     
-var sphereMaterial1 = new THREE. MeshPhongMaterial( {color: 0xff6347} );
-var sphereMaterial2 = new THREE. MeshPhongMaterial( {color: 0xff0000} );
-var sphereMaterial3 = new THREE. MeshPhongMaterial( {color: 0x8B4513} );
+var sphereMaterial1 = new THREE. MeshPhongMaterial( {color: 0xff6347} );　　//トマト色
+var sphereMaterial2 = new THREE. MeshPhongMaterial( {color: 0xff0000} );    //赤色
+var sphereMaterial3 = new THREE. MeshPhongMaterial( {color: 0x8B4513} );    //茶色
     
 var sphere1 = new THREE.Mesh( sphereGeometry1, sphereMaterial1 );
 var sphere2 = new THREE.Mesh( sphereGeometry1, sphereMaterial1 );
@@ -57,7 +57,7 @@ sphere2.position.set( -1.3, -0.1, -5.5 );    //頬2
 sphere3.position.set( 0, -0.1, -5.2);     //鼻
 sphere4.position.set( 0, 0, -8);          //顔
 
-const anpan = new THREE.Group()    
+const anpan = new THREE.Group()    　//anpanでグループ化
 anpan.add( sphere1 );
 anpan.add( sphere2 );
 anpan.add( sphere3 );
@@ -84,7 +84,7 @@ scene.add(anpan);
     var update = function() {
       requestAnimationFrame(update);
       
-      anpan.position.z += 0.01;;
+      anpan.position.z += 0.01;;　　//徐々に近づく動き
       
       
       renderer.render(scene, camera);
